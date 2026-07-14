@@ -1,0 +1,155 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Yellow Captain</title>
+  <meta name="description" content="Yellow Captain — The Pizza Specialist at Vision City Mega Mall. Visit us for fresh pizzas, combos and fast pickup.">
+  <meta property="og:title" content="Yellow Captain — The Pizza Specialist">
+  <meta property="og:description" content="Visit Yellow Captain at Vision City Mega Mall for fresh pizza, family deals, and fast pickup.">
+  <meta property="og:image" content="images/background.jpg">
+  <meta name="theme-color" content="#f3c14d">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Yellow Captain",
+    "image": ["images/background.jpg"],
+    "@id": "",
+    "url": "",
+    "telephone": "+6753028570",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Vision City Mega Mall",
+      "addressLocality": "Port Moresby",
+      "addressCountry": "PG"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -9.4435814,
+      "longitude": 147.1819841
+    },
+    "priceRange": "K",
+    "servesCuisine": "Pizza"
+  }
+  </script>
+</head>
+<body>
+  <div class="page-wrapper">
+      <header class="site-header fade-up">
+      <a href="index.html" class="brand">
+        <picture>
+          <source type="image/webp" srcset="images/logo.webp">
+          <img src="images/logo.jpg" alt="Yellow Captain logo" loading="eager">
+        <picture>
+          <source type="image/webp" srcset="images/background2.webp 800w, images/background2.webp 1400w" sizes="100vw">
+          <img class="hero-bg" src="images/background2.jpg" alt="Yellow Captain hero background" fetchpriority="high">
+        </picture>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="specials.html">Specials</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-tagline">The Pizza Specialist</div>
+    </header>
+
+    <main>
+      <section class="hero fade-up">
+        <img class="hero-bg" src="images/background2.jpg" alt="Yellow Captain hero background">
+        <div class="hero-content">
+          <span class="hero-badge">Contact</span>
+          <h1 class="hero-title">Reserve a table or order pickup fast.</h1>
+          <p class="hero-copy">Fast service, easy booking, and pizza ready when you want it.</p>
+          <div class="cta-group">
+            <a href="#form" class="btn">Book Now</a>
+            <a href="tel:+6753028570" class="secondary-btn">Call Now</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section fade-up">
+        <div class="section-head">
+          <h2 class="section-title">Location & Hours</h2>
+          <p class="section-copy">Find us in Vision City Mega Mall and swing by for the best pizza in town.</p>
+        </div>
+        <div class="location-grid">
+          <article class="info-card">
+            <h3>Visit us</h3>
+            <p class="location-copy">Vision City Mega Mall, Port Moresby</p>
+            <div class="hours-item">
+              <p class="hours-title">Mon–Thu</p>
+              <p>10 AM – 9 PM</p>
+            </div>
+            <div class="hours-item">
+              <p class="hours-title">Fri–Sat</p>
+              <p>10 AM – 10 PM</p>
+            </div>
+            <div class="hours-item">
+              <p class="hours-title">Sunday</p>
+              <p>10 AM – 8 PM</p>
+            </div>
+          </article>
+          <article class="info-card map-card">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14938.120094160904!2d147.1819841292528!3d-9.443581415748111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x690230c8be3530e3%3A0x6b6056559e073ba7!2sVision%20City%20Mega%20Mall!5e0!3m2!1sen!2spg!4v1784042043667!5m2!1sen!2spg" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <div class="map-fallback"><a href="https://www.google.com/maps/search/?api=1&query=Vision+City+Mega+Mall" target="_blank" rel="noopener noreferrer">Open map in Google Maps</a></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section fade-up" id="form">
+        <div class="section-head">
+          <h2 class="section-title">Reservations</h2>
+          <p class="section-copy">Send us your details and we’ll confirm a table or pickup window.</p>
+        </div>
+        <article class="form-card">
+          <form class="reservation-form" action="#" method="post">
+            <div class="form-field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required>
+            </div>
+            <div class="form-field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="Phone number" required>
+            </div>
+            <div class="form-field">
+              <label for="date">Date</label>
+              <input id="date" name="date" type="date" required>
+            </div>
+            <div class="form-field">
+              <label for="time">Time</label>
+              <input id="time" name="time" type="time" required>
+            </div>
+            <button type="submit">Send Request</button>
+          </form>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer fade-up">
+      <p class="footer-copy">© 2026 Yellow Captain — Vision City. Pizza made easy.</p>
+      <div class="social-links">
+        <a class="social-link whatsapp" href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.865 11.865 0 0012 0C5.372 0 0 5.372 0 12c0 2.062.5 4.048 1.452 5.8L0 24l6.5-1.43A11.937 11.937 0 0012 24c6.627 0 12-5.373 12-12 0-3.194-1.246-6.193-3.48-8.52Z"/><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.1-.472-.149-.672.15-.197.297-.76.967-.93 1.166-.17.199-.34.223-.637.075-1.73-.86-2.86-1.546-4.008-3.148-.304-.524.304-.487.874-1.62.1-.223.05-.415-.023-.563-.075-.149-.672-1.62-.92-2.219-.242-.579-.488-.5-.672-.51-.17-.007-.36-.008-.549-.008-.186 0-.49.07-.748.34-.26.272-1 1-.99 2.44.01 1.44 1.03 2.84 1.17 3.04.14.2 2.02 3.08 4.9 4.32.684.296 1.22.473 1.64.606.689.22 1.32.19 1.82.115.556-.09 1.758-.72 2.007-1.42.248-.7.248-1.3.174-1.42-.075-.12-.273-.19-.57-.34Z"/></svg>
+        </a>
+        <a class="social-link facebook" href="https://facebook.com/yellowcaptain" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.99H7.898v-2.888h2.54V9.797c0-2.507 1.493-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562v1.874h2.773l-.443 2.888h-2.33v6.99C18.343 21.128 22 16.991 22 12z"/></svg>
+        </a>
+        <a class="social-link instagram" href="https://instagram.com/yellowcaptain" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2C4.238 2 2 4.238 2 7v10c0 2.762 2.238 5 5 5h10c2.762 0 5-2.238 5-5V7c0-2.762-2.238-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3.5A4.5 4.5 0 017.5 12 4.5 4.5 0 0116 7.5 4.5 4.5 0 0112 5.5zm0 7A2.5 2.5 0 0014.5 10 2.5 2.5 0 0012 7.5 2.5 2.5 0 009.5 10 2.5 2.5 0 0012 12.5zm4.75-6.25a.75.75 0 100 1.5.75.75 0 000-1.5z"/></svg>
+        </a>
+        <a class="social-link linkedin" href="https://linkedin.com/company/yellow-captain" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.84 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5V24H0V8zm7 0h4.66v2.21h.07c.65-1.23 2.24-2.53 4.61-2.53 4.94 0 5.99 3.15 5.99 7.23V24h-5v-7.67c0-1.83-.03-4.18-2.55-4.18-2.55 0-2.93 1.98-2.93 4.03V24H7V8z"/></svg>
+        </a>
+      </div>
+    </footer>
+  </div>
+  <script src="main.js" defer></script>
+</body>
+</html>

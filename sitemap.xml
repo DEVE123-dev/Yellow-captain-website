@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://localhost/index.html</loc>
+  </url>
+  <url>
+    <loc>http://localhost/menu.html</loc>
+  </url>
+  <url>
+    <loc>http://localhost/specials.html</loc>
+  </url>
+  <url>
+    <loc>http://localhost/gallery.html</loc>
+  </url>
+  <url>
+    <loc>http://localhost/contact.html</loc>
+  </url>
+</urlset>
