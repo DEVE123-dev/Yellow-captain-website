@@ -7,16 +7,18 @@
   --text: #221b15;
   --muted: #5a4633;
   --accent: #6b3f1b;
-  --accent-dark: #52351d;
+  --accent-dark: #3f2a17;
+  --crust: #2a1c10;
   --gold: #f3c14d;
+  --gold-bright: #ffc72c;
   --whatsapp: #25d366;
   --facebook: #1877f2;
   --instagram-start: #fccc63;
   --instagram-end: #d6249f;
   --linkedin: #0a66c2;
-  --border: rgba(34, 27, 21, 0.12);
-  /* stronger overlay for better contrast on hero text */
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.36), rgba(255, 255, 255, 0.12));
+  --border: rgba(42, 28, 16, 0.14);
+  --shadow: 0 20px 45px rgba(42, 28, 16, 0.16);
+  --shadow-sm: 0 10px 22px rgba(42, 28, 16, 0.12);
   --radius: 28px;
   --radius-sm: 18px;
   --transition: 240ms ease;
@@ -34,7 +36,9 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: 'Open Sans', sans-serif;
-  background: linear-gradient(180deg, var(--bg), var(--surface-strong) 60%);
+  background:
+    radial-gradient(circle at 1px 1px, rgba(107, 63, 27, 0.06) 1px, transparent 0) 0 0/26px 26px,
+    linear-gradient(180deg, var(--bg), var(--surface-strong) 60%);
   color: var(--text);
   line-height: 1.8;
   overflow-x: hidden;
@@ -180,14 +184,16 @@ select {
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+  border: 2px solid transparent;
+  transition: transform var(--transition), background var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
 .primary-nav a:hover,
 .primary-nav a:focus-visible {
   transform: translateY(-2px);
   background: var(--accent-dark);
-  box-shadow: 0 14px 25px rgba(0, 0, 0, 0.16);
+  border-color: var(--gold-bright);
+  box-shadow: 0 14px 25px rgba(42, 28, 16, 0.22);
 }
 
 .menu-toggle {
@@ -239,7 +245,7 @@ select {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(107, 63, 27, 0.38), rgba(255, 255, 255, 0.24));
+  background: linear-gradient(180deg, rgba(42, 28, 16, 0.5), rgba(255, 247, 216, 0.2));
 }
 
 .hero-content {
@@ -253,16 +259,17 @@ select {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 244, 206, 0.96);
-  color: var(--accent-dark);
+  background: var(--gold-bright);
+  color: var(--crust);
   padding: 0.8rem 1rem;
   border-radius: 999px;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.82rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 2px solid var(--crust);
+  transform: rotate(-2deg);
 }
 
 .hero-title {
@@ -301,33 +308,44 @@ select {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
 }
 
 .btn {
-  background: var(--accent);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--gold-bright);
+  color: var(--crust);
+  border: 2px solid var(--crust);
+  box-shadow: 0 5px 0 var(--crust);
 }
 
 .btn:hover,
 .btn:focus-visible {
-  transform: translateY(-2px);
-  background: var(--accent-dark);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px) rotate(-1deg);
+  background: var(--gold);
+  box-shadow: 0 8px 0 var(--crust);
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 0 var(--crust);
 }
 
 .secondary-btn {
-  background: rgba(255, 255, 255, 0.94);
-  color: var(--text);
-  border: 1px solid rgba(34, 27, 21, 0.12);
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--accent-dark);
+  border: 2px solid var(--accent-dark);
 }
 
 .secondary-btn:hover,
 .secondary-btn:focus-visible {
-  transform: translateY(-2px);
+  transform: translateY(-3px) rotate(1deg);
   background: #fff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 0 rgba(63, 42, 23, 0.35);
+}
+
+.secondary-btn:active {
+  transform: translateY(1px);
+  box-shadow: none;
 }
 
 .section {
@@ -365,12 +383,6 @@ select {
   line-height: 1.9;
 }
 
-.section-copy {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1rem;
-}
-
 .menu-grid,
 .gallery-grid,
 .deck-grid,
@@ -406,9 +418,9 @@ select {
 .deal-card:hover,
 .info-card:hover,
 .form-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 28px 70px rgba(34, 27, 21, 0.14);
-  border-color: rgba(34, 27, 21, 0.18);
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px rgba(42, 28, 16, 0.2);
+  border-color: var(--gold-bright);
 }
 
 .menu-card img,
@@ -462,10 +474,15 @@ select {
 
 .menu-card-price,
 .deal-card-price {
+  display: inline-block;
   margin: 1rem 0 0;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: var(--gold-bright);
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  color: var(--accent-dark);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--crust);
 }
 
 .carousel {
@@ -475,7 +492,7 @@ select {
 .carousel-track {
   position: relative;
   overflow: hidden;
-  min-height: 320px;
+  min-height: 460px;
 }
 
 .carousel-slide {
@@ -484,21 +501,18 @@ select {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.45s ease;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
 }
 
-/* Ensure deal-cards inside the carousel layout consistently */
-.carousel-slide .deal-card {
+/* .deal-card and .carousel-slide are the same <article> element, so this
+   must be a compound selector (no space) to actually match it. */
+.carousel-slide.deal-card {
   width: 100%;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-/* Fixed image area for carousel deal-cards */
-.carousel-slide .deal-card img {
+.carousel-slide.deal-card img {
   width: 100%;
   height: 260px;
   object-fit: cover;
@@ -506,7 +520,7 @@ select {
   transition: transform var(--transition);
 }
 
-.carousel-slide .deal-card .deal-card-body {
+.carousel-slide.deal-card .deal-card-body {
   flex: 1 1 auto;
   padding: 1.6rem;
   background: var(--surface);
@@ -875,13 +889,15 @@ select {
 }
 
 @media (max-width: 980px) {
-  .menu-grid,
   .location-grid,
-  .gallery-grid {
+  .deck-grid {
     grid-template-columns: 1fr;
   }
+}
 
-  .deck-grid {
+@media (max-width: 640px) {
+  .menu-grid,
+  .gallery-grid {
     grid-template-columns: 1fr;
   }
 
@@ -894,18 +910,18 @@ select {
 
 /* Responsive carousel image heights */
 @media (max-width: 980px) {
-  .carousel-track { min-height: 280px; }
-  .carousel-slide .deal-card img { height: 220px; flex: 0 0 220px; }
+  .carousel-track { min-height: 420px; }
+  .carousel-slide.deal-card img { height: 220px; flex: 0 0 220px; }
 }
 
 @media (max-width: 780px) {
-  .carousel-track { min-height: 240px; }
-  .carousel-slide .deal-card img { height: 180px; flex: 0 0 180px; }
+  .carousel-track { min-height: 400px; }
+  .carousel-slide.deal-card img { height: 180px; flex: 0 0 180px; }
 }
 
 @media (max-width: 520px) {
-  .carousel-track { min-height: 200px; }
-  .carousel-slide .deal-card img { height: 140px; flex: 0 0 140px; }
+  .carousel-track { min-height: 380px; }
+  .carousel-slide.deal-card img { height: 140px; flex: 0 0 140px; }
 }
 
 @media (max-width: 768px) {
@@ -955,7 +971,6 @@ select {
     white-space: normal;
     color: var(--muted);
     font-size: 0.82rem;
-    max-width: calc(100% - 96px);
   }
 
   .menu-toggle {
