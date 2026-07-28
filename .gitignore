@@ -1,0 +1,15 @@
+# Dependencies (local tooling only — not needed in production/deploy)
+node_modules/
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+
+# Lighthouse / build reports
+lighthouse-*.html
+lighthouse-*.json
+
+# Local env files
+.env
+.env.local
