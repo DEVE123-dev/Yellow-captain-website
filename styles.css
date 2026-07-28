@@ -1110,7 +1110,7 @@ select {
   .carousel-slide.deal-card img { height: 140px; flex: 0 0 140px; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .site-header {
     display: grid;
     grid-template-columns: 1fr auto;
