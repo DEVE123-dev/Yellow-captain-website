@@ -1,25 +1,48 @@
-Convert images to WebP
+# Image optimisation script
 
-This script converts JPG/PNG images under the `images/` folder into WebP format (keeps originals).
+`optimize-images.js` generates responsive WebP + JPEG derivatives for the source
+photos in `images/`. Each source photo produces one or more `<name>-<width>w.webp`
+and `<name>-<width>w.jpg` files, sized for where that photo is actually used on
+the site (hero banners, menu cards, gallery tiles). Source photos are never
+overwritten, so they remain available if you need to regenerate at different
+sizes later.
 
-Requirements
-- Node.js (14+)
-- Run `npm install sharp glob minimist` in the project root
+## Requirements
 
-Usage
+- Node.js 18+
+- npm
 
-From project root:
+## Usage
 
-```powershell
-npm install sharp glob minimist
-node scripts/convert-images-to-webp.js --quality=80
+Install dependencies once:
+
+```bash
+npm install
 ```
 
-Options
-- `--quality` or `-q`: WebP quality (0-100). Default 80.
-- `--search` or `-s`: Glob pattern to match images. Default `images/**/*.{jpg,jpeg,png,JPG,JPEG,PNG}`.
-- `--force` or `-f`: Force regenerate even if `.webp` exists and is newer.
+Regenerate every derivative:
 
-After running
-- The script writes `.webp` files next to original images, preserving folder structure.
-- Confirm visually or run Lighthouse to measure improvements.
+```bash
+npm run images:optimize
+```
+
+Or call the script directly:
+
+```bash
+node scripts/optimize-images.js
+```
+
+## Adding a new photo
+
+1. Drop the source JPG/PNG into `images/` (or `images/gallery/`).
+2. Add an entry to the `MANIFEST` object at the top of `optimize-images.js` with
+   the target widths (in pixels) that the photo needs — check how wide it will
+   ever be rendered on the page and pick one or two widths that cover mobile and
+   desktop.
+3. Run `npm run images:optimize`.
+4. Reference the generated `-<width>w.webp` / `-<width>w.jpg` files from a
+   `<picture>` element in the relevant HTML page (see any existing `menu-card`
+   or `gallery-card` for the pattern).
+
+Widths larger than the source image are skipped automatically — the script
+never upscales.

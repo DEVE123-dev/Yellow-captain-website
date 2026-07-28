@@ -1,0 +1,24 @@
+# Optional "Blueprint" definition for Render (render.blueprints).
+# This lets Render auto-configure the static site when the repo is connected
+# via "New +" -> "Blueprint" instead of "New +" -> "Static Site". It is not
+# required — the manual "Static Site" setup documented in README.md works
+# just as well and is the more foolproof path if this file's schema ever
+# drifts from what Render currently expects. Either path deploys the same
+# plain static site with no build step.
+services:
+  - type: web
+    name: yellow-captain
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin

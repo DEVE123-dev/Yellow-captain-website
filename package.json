@@ -1,7 +1,17 @@
 {
-  "dependencies": {
+  "name": "yellow-captain-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static marketing website for Yellow Captain, Vision City Mega Mall.",
+  "scripts": {
+    "images:optimize": "node scripts/optimize-images.js"
+  },
+  "devDependencies": {
     "glob": "^13.0.6",
     "minimist": "^1.2.8",
     "sharp": "^0.35.3"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
