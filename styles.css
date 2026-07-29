@@ -429,10 +429,20 @@ select {
 
 .section-title {
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(2rem, 4vw, 2.8rem);
   letter-spacing: -0.04em;
   color: var(--accent-dark);
+}
+
+.section-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  color: var(--accent);
 }
 
 .section-head::before {
@@ -823,6 +833,72 @@ select {
   .about-card .location-copy {
     margin: 0;
   }
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.4rem;
+}
+
+.review-card {
+  position: relative;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  padding: 2rem 1.8rem 1.6rem;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px rgba(42, 28, 16, 0.2);
+  border-color: var(--gold-bright);
+}
+
+.review-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 0.4rem;
+  left: 1.5rem;
+  font-family: Georgia, serif;
+  font-size: 3.4rem;
+  line-height: 1;
+  color: var(--gold-bright);
+  opacity: 0.7;
+}
+
+.review-quote {
+  position: relative;
+  margin: 1.5rem 0 0;
+  font-size: 0.96rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.review-author {
+  margin: 1.2rem 0 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--accent-dark);
+}
+
+.review-author span {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.review-source {
+  margin: 1.6rem 0 0;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--muted);
 }
 
 .info-card p,
