@@ -297,20 +297,26 @@ The reservation form on `contact.html` posts to
 [Formspree](https://formspree.io), a third-party form backend that emails
 submissions to a real inbox without needing a server of our own. Formspree's
 free tier (50 submissions/month) is normally enough for a single restaurant's
-reservation requests. To activate it:
+reservation requests. This is a deliberate zero-backend approach: no server
+code to maintain, no hosting cost beyond the free tier, and the client owns
+the account it depends on — Formspree just relays each submission straight to
+whatever email address the form is configured to deliver to (e.g. the
+restaurant's own inbox).
 
-1. The client (or developer, on the client's behalf) creates a free Formspree
-   account using the restaurant's real email address.
-2. Create a new form and copy its endpoint URL.
-3. In `contact.html`, replace `https://formspree.io/f/YOUR_FORM_ID` with that
-   URL.
-4. Commit, push, and Render redeploys automatically.
+The form is already wired up to a live Formspree endpoint
+(`https://formspree.io/f/mkodydjy`). One thing to confirm if it hasn't
+happened yet: Formspree sends a one-time "confirm you own this form" email to
+the delivery address the *first* time a submission comes through — click that
+link before relying on the form for real customers, otherwise that first
+submission (and only that one) won't go anywhere.
 
-Until that's configured, the form will not deliver submissions — the phone
-and WhatsApp links elsewhere on the site remain the reliable fallback in the
-meantime. This is a deliberate zero-backend approach: no server code to
-maintain, no hosting cost beyond the free tier, and the client owns the
-account it depends on.
+To change which Formspree account/form it points to in the future:
+
+1. Sign in at [formspree.io](https://formspree.io), create a new form, and
+   copy its endpoint URL.
+2. In `contact.html`, replace the `action="https://formspree.io/f/..."` value
+   on the `<form class="reservation-form">` with the new URL.
+3. Commit, push, and Render redeploys automatically.
 
 ---
 
@@ -378,7 +384,7 @@ Internet Explorer.
 - All images ship `width`/`height` attributes so the browser can reserve
   layout space before they load, avoiding layout shift.
 - No JavaScript framework or third-party scripts beyond Google Fonts, the
-  Google Maps embed, and (once configured) the Formspree form endpoint.
+  Google Maps embed, and the Formspree form endpoint.
 
 ### Troubleshooting
 
@@ -398,8 +404,8 @@ embed URLs this can break independently of anything in this codebase. The
 "Open map in Google Maps" link next to it is a working fallback either way.
 
 **The reservation form doesn't seem to send anything.**
-See [Contact form](#contact-form) — it needs a real Formspree endpoint
-configured before it will deliver submissions anywhere.
+See [Contact form](#contact-form) — most likely the one-time Formspree
+confirmation email hasn't been clicked yet.
 
 **Mobile menu button doesn't open the nav.**
 Check that `main.js` is loading (browser DevTools → Network tab). It's
@@ -417,7 +423,6 @@ going live:
 | Placeholder | Where | Replace with |
 |---|---|---|
 | `www.yellowcaptain.example` | `<head>` of every page, `sitemap.xml`, `robots.txt` | The real domain, once purchased/connected |
-| `https://formspree.io/f/YOUR_FORM_ID` | `contact.html` | A real Formspree endpoint — see [Contact form](#contact-form) |
 | `https://wa.me/1234567890` | Footer (every page), `contact.html` | The restaurant's real WhatsApp Business number |
 | `facebook.com/yellowcaptain`, `instagram.com/yellowcaptain`, `linkedin.com/company/yellow-captain` | Footer (every page) | The real social profile URLs (or remove any that don't apply — a LinkedIn page is unusual for a casual restaurant) |
 | Menu items, prices, and hours | `index.html`, `menu.html`, `specials.html`, `contact.html` | Confirmed current pricing and hours from the client |
